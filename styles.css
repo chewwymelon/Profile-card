@@ -1,11 +1,14 @@
-/* Color Variables */
+/* Color Palette: White Dominant (50%), Black (40%), Lime (10%) */
 :root {
-    --bg-dark: #0a0a0a;
-    --surface: #141414;
-    --text-light: #ffffff;
-    --text-muted: #a0a0a0;
-    --lime: #a3e635;
-    --border: #2a2a2a;
+    --bg-white: #fdfdfd;       /* Main Body White */
+    --bg-dark: #121212;        /* Dark background for Nav & Footer */
+    --surface-dark: #1e1e1e;   /* Dark background for Cards */
+    --text-dark: #1a1a1a;      /* Text on white background */
+    --text-light: #ffffff;     /* Text on dark background */
+    --text-muted: #a0a0a0;     /* Muted text on dark background */
+    --lime: #a3e635;           /* Accent color */
+    --border-light: #e0e0e0;   /* Border for white background */
+    --border-dark: #333333;    /* Border for dark cards */
 }
 
 * {
@@ -16,27 +19,27 @@
     scroll-behavior: smooth;
 }
 
+/* Base Body - Set to White */
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    background-color: var(--bg-white);
+    color: var(--text-dark);
     line-height: 1.5;
     font-size: 14px;
 }
 
 a {
-    color: var(--text-light);
     text-decoration: none;
+    transition: color 0.2s;
 }
 
-/* Navigation */
+/* Navigation - Dark Theme */
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(10, 10, 10, 0.95);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(5px);
+    background-color: var(--bg-dark);
+    border-bottom: 2px solid var(--lime); /* Lime accent line */
     z-index: 1000;
 }
 
@@ -53,6 +56,7 @@ nav {
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
+    color: var(--text-light);
 }
 
 .logo span {
@@ -69,8 +73,7 @@ nav {
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    color: var(--text-muted);
-    transition: color 0.2s;
+    color: var(--text-light);
 }
 
 .nav-links a:hover {
@@ -81,24 +84,25 @@ nav {
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 80px 15px 30px 15px;
+    padding: 90px 15px 30px 15px;
 }
 
 section {
     padding: 30px 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-light);
 }
 
 section:last-child {
     border-bottom: none;
 }
 
+/* Section Titles - Dark Text on White Background */
 .section-title {
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    color: var(--lime);
+    color: var(--text-dark);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -108,18 +112,20 @@ section:last-child {
     content: '';
     flex-grow: 1;
     height: 1px;
-    background-color: var(--border);
+    background-color: var(--border-light);
 }
 
-/* Profile Section */
+/* Profile Section - Dark Card */
 .profile-container {
     display: flex;
     align-items: center;
     gap: 20px;
-    background-color: var(--surface);
+    background-color: var(--surface-dark);
+    color: var(--text-light);
     padding: 20px;
     border-radius: 8px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-dark);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .profile-pic {
@@ -129,16 +135,23 @@ section:last-child {
     border: 2px solid var(--lime);
     object-fit: cover;
     flex-shrink: 0;
+    background-color: #fff;
 }
 
 .profile-info {
     flex-grow: 1;
 }
 
+/* Name and Badge Flex Wrapper (Fixes Offside Badge) */
+.name-badge-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .profile-name {
     font-size: 1.6rem;
-    display: inline-block;
-    margin-right: 10px;
 }
 
 .profile-status {
@@ -146,15 +159,15 @@ section:last-child {
     text-transform: uppercase;
     background-color: var(--lime);
     color: var(--bg-dark);
-    padding: 3px 8px;
+    padding: 4px 10px;
     font-weight: bold;
     border-radius: 4px;
-    vertical-align: middle;
+    white-space: nowrap; /* Forces text to stay on one line */
 }
 
 .profile-bio {
     color: var(--text-muted);
-    margin: 8px 0 12px 0;
+    margin: 10px 0;
 }
 
 .social-links {
@@ -164,12 +177,12 @@ section:last-child {
 }
 
 .social-links a {
-    padding: 5px 12px;
+    padding: 6px 12px;
     background-color: var(--bg-dark);
-    border: 1px solid var(--border);
+    color: var(--text-light);
+    border: 1px solid var(--border-dark);
     font-size: 0.8rem;
     border-radius: 4px;
-    transition: all 0.2s;
 }
 
 .social-links a:hover {
@@ -188,7 +201,8 @@ section:last-child {
     aspect-ratio: 1 / 1;
     border-radius: 6px;
     overflow: hidden;
-    background-color: var(--surface);
+    background-color: var(--surface-dark);
+    border: 1px solid var(--border-dark);
 }
 
 .gallery-item img {
@@ -202,7 +216,7 @@ section:last-child {
     transform: scale(1.05);
 }
 
-/* ToS Section */
+/* ToS Section - Dark Cards */
 .tos-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -210,10 +224,14 @@ section:last-child {
 }
 
 .tos-block {
-    background-color: var(--surface);
+    background-color: var(--surface-dark);
+    color: var(--text-light);
     padding: 15px;
     border-left: 3px solid var(--lime);
     border-radius: 4px;
+    border-top: 1px solid var(--border-dark);
+    border-right: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
 }
 
 .tos-block h3 {
@@ -232,7 +250,7 @@ section:last-child {
     font-size: 0.85rem;
 }
 
-/* Pricing & Payment Grid (Compact Cards) */
+/* Pricing & Payment Grid - Dark Cards */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -240,8 +258,9 @@ section:last-child {
 }
 
 .card {
-    background-color: var(--surface);
-    border: 1px solid var(--border);
+    background-color: var(--surface-dark);
+    color: var(--text-light);
+    border: 1px solid var(--border-dark);
     border-radius: 6px;
     padding: 15px;
     display: flex;
@@ -264,7 +283,7 @@ section:last-child {
     font-weight: 700;
     color: var(--lime);
     margin: 5px 0 10px 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--border-dark);
     padding-bottom: 10px;
 }
 
@@ -273,7 +292,7 @@ section:last-child {
     color: var(--text-muted);
     font-size: 0.85rem;
     margin-bottom: 15px;
-    flex-grow: 1; /* Pushes button to bottom */
+    flex-grow: 1;
 }
 
 .card-features li {
@@ -320,21 +339,21 @@ section:last-child {
 }
 
 .btn-order:hover {
-    background: #ffffff;
+    background: var(--text-light);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px 0;
-    color: var(--text-muted);
+    color: var(--text-dark);
     font-size: 0.85rem;
-    border-top: 1px solid var(--border);
-    background-color: var(--bg-dark);
+    background-color: var(--bg-white);
+    border-top: 1px solid var(--border-light);
 }
 
 /* =========================================
-   MOBILE RESPONSIVE (Android / Web Mobile)
+   MOBILE RESPONSIVE (Fixes offside layout)
    ========================================= */
 @media (max-width: 768px) {
     .nav-container {
@@ -344,40 +363,38 @@ footer {
     
     .nav-links {
         width: 100%;
-        overflow-x: auto; /* Allow horizontal scroll for menu on small screens */
+        flex-wrap: wrap; /* Fixes offside menu in mobile */
+        justify-content: center; /* Center the wrapped items */
         padding-top: 10px;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch;
+        gap: 12px;
     }
     
-    .nav-links::-webkit-scrollbar {
-        display: none; /* Hide scrollbar for cleaner look */
+    .nav-links a {
+        font-size: 0.8rem;
     }
 
     .container {
-        padding-top: 90px;
+        padding-top: 100px; /* Adjusted spacing for wrapped nav */
     }
 
-    /* Stack profile contents vertically */
     .profile-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .profile-name {
+    .name-badge-wrapper {
+        justify-content: center; /* Center Name and Badge on mobile */
         margin: 10px 0;
     }
-    
+
     .social-links {
         justify-content: center;
     }
 
-    /* Force Pricing and Payment cards to stack strictly 1 column on mobile */
     .grid-container {
         grid-template-columns: 1fr; 
     }
 
-    /* Force Art Samples to be 2 columns on mobile so it's compact */
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
