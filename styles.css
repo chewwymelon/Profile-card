@@ -1,0 +1,384 @@
+/* Color Variables */
+:root {
+    --bg-dark: #0a0a0a;
+    --surface: #141414;
+    --text-light: #ffffff;
+    --text-muted: #a0a0a0;
+    --lime: #a3e635;
+    --border: #2a2a2a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--lime);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-links a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--lime);
+}
+
+/* Layout Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 15px 30px 15px;
+}
+
+section {
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: var(--lime);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--border);
+}
+
+/* Profile Section */
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--surface);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.profile-pic {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 2px solid var(--lime);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 1.6rem;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.profile-status {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    background-color: var(--lime);
+    color: var(--bg-dark);
+    padding: 3px 8px;
+    font-weight: bold;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.profile-bio {
+    color: var(--text-muted);
+    margin: 8px 0 12px 0;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.social-links a {
+    padding: 5px 12px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.social-links a:hover {
+    border-color: var(--lime);
+    color: var(--lime);
+}
+
+/* Samples Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--surface);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ToS Section */
+.tos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.tos-block {
+    background-color: var(--surface);
+    padding: 15px;
+    border-left: 3px solid var(--lime);
+    border-radius: 4px;
+}
+
+.tos-block h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.tos-block h3 i {
+    color: var(--lime);
+    margin-right: 5px;
+}
+
+.tos-block ul {
+    list-style-position: inside;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* Pricing & Payment Grid (Compact Cards) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: border 0.2s;
+}
+
+.card:hover {
+    border-color: var(--lime);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--lime);
+    margin: 5px 0 10px 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.card-features {
+    list-style: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Pushes button to bottom */
+}
+
+.card-features li {
+    margin-bottom: 6px;
+}
+
+.card-features li::before {
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    color: var(--lime);
+    margin-right: 8px;
+}
+
+.payment-card {
+    text-align: center;
+    align-items: center;
+}
+
+.payment-icon {
+    font-size: 2.2rem;
+    color: var(--lime);
+    margin-bottom: 10px;
+}
+
+.payment-desc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 10px 0 15px 0;
+    flex-grow: 1;
+}
+
+.btn-order {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    background: var(--lime);
+    color: var(--bg-dark);
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.btn-order:hover {
+    background: #ffffff;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    background-color: var(--bg-dark);
+}
+
+/* =========================================
+   MOBILE RESPONSIVE (Android / Web Mobile)
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .nav-links {
+        width: 100%;
+        overflow-x: auto; /* Allow horizontal scroll for menu on small screens */
+        padding-top: 10px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-links::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for cleaner look */
+    }
+
+    .container {
+        padding-top: 90px;
+    }
+
+    /* Stack profile contents vertically */
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-name {
+        margin: 10px 0;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Force Pricing and Payment cards to stack strictly 1 column on mobile */
+    .grid-container {
+        grid-template-columns: 1fr; 
+    }
+
+    /* Force Art Samples to be 2 columns on mobile so it's compact */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
